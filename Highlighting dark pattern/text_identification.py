@@ -7,7 +7,7 @@ from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 
 # Load the file paths from the JSON file
-with open(r"C:\Users\mebub_9a7jdi8\Desktop\Dark pattern detection in e-commerce website\Path\paths.json") as f:
+with open("./Path/paths.json") as f:
     file_paths = json.load(f)
 
 # Set the tesseract path from the JSON file

@@ -1,6 +1,6 @@
 {
     "TESSERACT_PATH": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
-    "DATASET_PATH": "C:\\Users\\mebub_9a7jdi8\\Desktop\\Dark pattern detection in e-commerce website\\Dataset\\dataset.tsv",
-    "MODEL_JOBLIB": "C:\\Users\\mebub_9a7jdi8\\Desktop\\Dark pattern detection in e-commerce website\\Models\\Dark Pattern Detection RF_model.joblib",
-    "VECTORIZER": "C:\\Users\\mebub_9a7jdi8\\Desktop\\Dark pattern detection in e-commerce website\\Vectorizer\\vectorizer.joblib"
+    "DATASET_PATH": "../Dataset/dataset.tsv",
+    "MODEL_JOBLIB": "./Trained models/Dark Pattern Detection RF_model.joblib",
+    "VECTORIZER": "./Vectorizer/vectorizer.joblib"
 }
