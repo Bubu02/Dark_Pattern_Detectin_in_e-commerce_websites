@@ -38,8 +38,11 @@ def ask_user(line):
     window.withdraw()  # Hide the main window
 
     # Show a messagebox and get the user's response
-    response = messagebox.askyesno("Dark Pattern Detected", "A dark pattern has been detected in this line. Do you want to print it?")
-    
+    response = messagebox.askyesno("Dark Pattern Detected", "Do you want to print it?")
+
+    # Bring the window to the foreground
+    window.lift()
+
     # Destroy the window
     window.destroy()
 
@@ -62,7 +65,7 @@ while True:
                 df = df._append({"Dark Pattern": line, "Label": 1}, ignore_index=True)
             else:
                 # Save the DataFrame to an Excel file
-                df.to_excel("Dataset/dark_patterns.xlsx", index=False)
-                exit(0)  # Exit the program
-    # Wait for a bit before taking the next screenshot
+                df.to_excel("Detected Data/dark_patterns.xlsx", index=False)
+                exit(0)
+    # Waiting time
     time.sleep(5)
