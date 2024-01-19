@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import tkinter as tk
 from tkinter import messagebox
+import os
 
 # Load the file paths from the JSON file
 with open("./Path/paths.json") as f:
@@ -25,6 +26,9 @@ vectorizer = load(file_paths["VECTORIZER"])
 # Create a DataFrame to store the dark patterns and their labels
 df = pd.DataFrame(columns=["Dark Pattern", "Label"])
 
+# Path to the Excel file
+excel_file = file_paths["DETECTED_DATA"]
+
 def extract_text_from_screen():
     # Take a screenshot
     screenshot = pyautogui.screenshot()
@@ -39,11 +43,7 @@ def ask_user(line):
 
     # Show a messagebox and get the user's response
     response = messagebox.askyesno("Dark Pattern Detected", "Do you want to print it?")
-
-    # Bring the window to the foreground
     window.lift()
-
-    # Destroy the window
     window.destroy()
 
     return response
@@ -64,8 +64,12 @@ while True:
                 print(line)
                 df = df._append({"Dark Pattern": line, "Label": 1}, ignore_index=True)
             else:
+                # If the Excel file exists, read it into a DataFrame
+                if os.path.exists(excel_file):
+                    df_old = pd.read_excel(excel_file)
+                    df = pd.concat([df_old, df])
                 # Save the DataFrame to an Excel file
-                df.to_excel("Detected Data/dark_patterns.xlsx", index=False)
-                exit(0)
-    # Waiting time
+                df.to_excel(excel_file, index=False)
+                exit(0)  # Exit the program
+    # Wait for a bit before taking the next screenshot
     time.sleep(5)

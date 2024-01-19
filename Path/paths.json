@@ -2,5 +2,6 @@
     "TESSERACT_PATH": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
     "DATASET_PATH": "../Dataset/dataset.tsv",
     "MODEL_JOBLIB": "./Trained models/Dark Pattern Detection RF_model.joblib",
-    "VECTORIZER": "./Vectorizer/vectorizer.joblib"
+    "VECTORIZER": "./Vectorizer/vectorizer.joblib",
+    "DETECTED_DATA": "./Detected Data/dark_patterns.xlsx"
 }
