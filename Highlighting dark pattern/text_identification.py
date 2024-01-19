@@ -43,7 +43,9 @@ def ask_user(line):
 
     # Show a messagebox and get the user's response
     response = messagebox.askyesno("Dark Pattern Detected", "Do you want to print it?")
+     # Bring the window to the foreground and keep it on top
     window.lift()
+    window.attributes('-topmost', True)
     window.destroy()
 
     return response
